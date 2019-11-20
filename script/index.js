@@ -45,9 +45,19 @@ class Fighter {
     this.charaName = charaName;
   }
 
-  //this logs who attacked who
+  //this logs who attacked who and how much damage they= attacker did
   attack(target) {
     console.log(this.name + ' attacked ' + target.name);
+    //Roll random damage
+    let amount = Math.ceil(Math.random(10) * this.atk);
+    //disply damage done
+    console.log(amount)
+    //koCheck to do damage
+    if (koCheck(target, amount) == true) {
+      return target.hp;
+    } else {
+      return target.hp;
+    }
   }
 
   single(target) {
@@ -115,8 +125,8 @@ function updateBars() {
   //calculates the percent of HP
   player0PercentHP = (Player0.hp / START_HP) * 100
   player1PercentHP = (Player1.hp / START_HP) * 100
-  player0PercentHP = (Player0.sp / START_SP) * 100
-  player1PercentHP = (Player1.sp / START_SP) * 100
+  player0PercentSP = (Player0.sp / START_SP) * 100
+  player1PercentSP = (Player1.sp / START_SP) * 100
 
   //Makes sure Player0's health is not greater than 100% or less than 0%
   if (player0PercentHP <= 0) {
@@ -163,6 +173,8 @@ function updateBars() {
 function hideContols() {
   controlsBox.innerHTML = "";
 }
+
+
 
 /*
 
